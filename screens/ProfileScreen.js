@@ -22,24 +22,37 @@ class ProfileScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView alwaysBounceHorizontal={false}>
-          <View style={styles.imageContainer}>
-            <Image source={require('../assets/images/profilePictures/Jayden.jpg')} style={styles.image} />
-          </View>
-          <Text h4 style={styles.name}>
-            Jayden Lee
-          </Text>
-          <Divider style={styles.divider} />
-          <Social name="globe" />
-          <Text style={styles.desc}> Melbourne, Australia
-          </Text>
-          <Text style={styles.desc}>I am an experienced event photographer and have done gigs for many artists and concerts, notably Marshmallo and Avici. I regularly try to push myself to get the most creative and innovative shots possible. Send me a message and we can chat :)</Text>
+        <ScrollView>
+        {/* profile pic */}
+        <View style={styles.imageContainer}>
+          <Image source={StaticScreenPics[0].pic} style={styles.image} />
+        </View>
+
+        {/* Name */}
           
-          <Divider style={styles.divider} />
-          <Text style={styles.desc}>Find me on Socials here</Text>
-          <View style={styles.socialLinks}>
-            <Social name="instagram" />
-            <Social name="linkedin" />
+        <Text h4 style={styles.name}>
+        {StaticScreenPics[0].title}
+        </Text>
+
+        <Divider style={styles.divider} />
+
+        <Social name="globe" />
+        
+        {/* Location */}
+        <Text style={styles.desc}>
+        {StaticScreenPics[0].location}
+        </Text>
+
+        {/* long-ass spiel */}
+        <Text style={styles.desc}>
+          {StaticScreenPics[0].aboutExt}
+        </Text>
+        
+        <Divider style={styles.divider} />
+        <Text style={styles.desc}>Find me on Socials here</Text>
+        <View style={styles.socialLinks}>
+          <Social name="instagram" />
+          <Social name="linkedin" />
           </View>
         </ScrollView>
       </SafeAreaView>
