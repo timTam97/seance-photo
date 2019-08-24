@@ -56,7 +56,7 @@ class ChatScreen extends React.Component {
 
     get user() {
         return {
-            name: this.props.navigation.getParam('name'),
+            name: this.props.navigation.getParam('name', null),
             _id: Fire.shared.uid,
         };
     }

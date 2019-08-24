@@ -1,4 +1,4 @@
-import { Icon } from 'expo'
+import { MaterialCommunityIcons, FontAwesome, Feather } from '@expo/vector-icons'
 import React, {Component} from 'react'
 import {
   createBottomTabNavigator,
@@ -12,22 +12,25 @@ import ProfileScreen from '../screens/ProfileScreen'
 import MyListScreen from '../screens/MyListScreen'
 import ChatScreen from '../screens/ChatScreen'
 
-const MainStack = createStackNavigator({
+const Messages = createStackNavigator({
+  MessagesScreen,
+  Chat: {
+    screen: ChatScreen,
+  },
+});
+
+const MainStack = createBottomTabNavigator({
     Home: {
       screen: HomeScreen,
       navigationOptions: {
         tabBarLabel: 'Freelancers',
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
-            Icon={Icon.MaterialCommunityIcons}
+            Icon={MaterialCommunityIcons}
             focused={focused}
             name="account-search"
           />
-        ),
-        // header: props => <CustomHeader {...props}/>,
-        //   headerStyle: {
-        //   backgroundColor: "transparent"
-        // }
+        )
       }
     },
     MyList: {
@@ -35,33 +38,28 @@ const MainStack = createStackNavigator({
       navigationOptions: {
         tabBarLabel: 'My List',
         tabBarIcon: ({ focused }) => (
-          <TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="list" />
+          <TabBarIcon Icon={FontAwesome} focused={focused} name="list" />
         ),
       }
     },
     Messages: {
-      screen: MessagesScreen,
+      screen: Messages,
       navigationOptions: {  
         tabBarLabel: 'Messages', 
         tabBarIcon: ({focused}) => 
-          (<TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="commenting-o" />
+          (<TabBarIcon Icon={FontAwesome} focused={focused} name="commenting-o" />
         ),
       }
     },
-    Chat: {
-      screen: ChatScreen,
-    },    
     Profile: {
       screen: ProfileScreen,
       navigationOptions: {
         tabBarLabel: 'My Company',
         tabBarIcon: ({ focused }) =>
-          (<TabBarIcon Icon={Icon.Feather} focused={focused} name="home" />
+          (<TabBarIcon Icon={Feather} focused={focused} name="home" />
         )
       }
     },
   });
 
-export default createBottomTabNavigator({
-  MainStack
-})
+export default MainStack;

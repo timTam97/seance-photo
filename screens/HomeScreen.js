@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, SafeAreaView, StyleSheet, View } from 'react-native'
+import { Button, SafeAreaView, StyleSheet, View, TouchableOpacity } from 'react-native'
 import Swiper from 'react-native-deck-swiper'
 import { Card } from '../components/Card'
 import { HomeScreenPics, MyListScreenPics } from '../constants/Pics'
@@ -7,6 +7,8 @@ import LikeDislikeButton from '../components/LikeDislikeButton'
 import { BottomTabBar } from 'react-navigation';
 import MyListScreen from './MyListScreen';
 import { GiftedChat } from 'react-native-gifted-chat';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 class HomeScreen extends React.Component {
   constructor (props) {
@@ -46,14 +48,14 @@ class HomeScreen extends React.Component {
           cards={this.state.cards}
           cardIndex={this.state.cardIndex}
           renderCard={Card}
-          backgroundColor="#24262A"
+          backgroundColor="#fff"
           cardHorizontalMargin={0}
           stackSize={2}
           verticalSwipe={false}
         />
         <View style={styles.buttons}>
           <View>
-            <Button onPress={() => this.emSwipeLeft()} title={nobuttontext}></Button>
+            <Button onPress={() => this.emSwipeLeft()} title={nobuttontext} ></Button>
           </View>
           <View>
             <Button onPress={() => this.emSwipeRight()} title={yesbuttontext}></Button>
