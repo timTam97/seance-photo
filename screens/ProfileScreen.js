@@ -2,7 +2,8 @@ import React from 'react'
 import { Image, SafeAreaView, StyleSheet, View } from 'react-native'
 import { Divider, Icon, Text } from 'react-native-elements'
 import Layout from '../constants/Layout'
-import { HomeScreenPics } from '../constants/Pics'
+import { StaticScreenPics } from '../constants/Pics'
+import { MyListScreenPics } from '../constants/Pics'
 import { randomNo } from '../utils/randomNo'
 import firebase from 'firebase'
 
@@ -22,17 +23,30 @@ class ProfileScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        
+        {/* profile pic */}
         <View style={styles.imageContainer}>
-          <Image source={require('../assets/images/profilePictures/Jayden.jpg')} style={styles.image} />
+          <Image source={StaticScreenPics[0].pic} style={styles.image} />
         </View>
+
+        {/* Name */}
         <Text h4 style={styles.name}>
-          Jayden Lee
+          {StaticScreenPics[0].title}
         </Text>
+
         <Divider style={styles.divider} />
+
         <Social name="globe" />
-        <Text style={styles.desc}> Melbourne, Australia
+        
+        {/* Location */}
+        <Text style={styles.desc}>
+        {StaticScreenPics[0].location}
         </Text>
-        <Text style={styles.desc}>I am an experienced event photographer and have done gigs for many artists and concerts, notably Marshmallo and Avici. I regularly try to push myself to get the most creative and innovative shots possible. Send me a message and we can chat :)</Text>
+
+        {/* long-ass spiel */}
+        <Text style={styles.desc}>
+          {StaticScreenPics[0].aboutExt}
+        </Text>
         
         <Divider style={styles.divider} />
         <Text style={styles.desc}>Find me on Socials here</Text>
