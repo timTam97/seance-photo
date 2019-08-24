@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "expo-tinder",
-    "slug": "expo-tinder",
+    "name": "expo-hireme",
+    "slug": "expo-hireme",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": ["ios", "android"],

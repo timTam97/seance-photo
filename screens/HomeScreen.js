@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, View } from 'react-native'
+import { Button, SafeAreaView, StyleSheet, View } from 'react-native'
 import Swiper from 'react-native-deck-swiper'
 import { Card } from '../components/Card'
 import { HomeScreenPics, MyListScreenPics } from '../constants/Pics'
@@ -7,7 +7,6 @@ import LikeDislikeButton from '../components/LikeDislikeButton'
 import { BottomTabBar } from 'react-navigation';
 import MyListScreen from './MyListScreen';
 import { GiftedChat } from 'react-native-gifted-chat';
-import { Button } from 'react-native';
 
 class HomeScreen extends React.Component {
   constructor (props) {
@@ -34,15 +33,13 @@ class HomeScreen extends React.Component {
   MyListScreenPics.push(to_add)
   }
   render() {
-      const yesbuttontext = 'Yes';
+      const yesbuttontext = 'Accept';
       
-      const nobuttontext = 'No';
+      const nobuttontext = 'Reject';
     return (
       <SafeAreaView style={styles.container}>
         <Swiper 
-          ref={swiper => {
-            this.swiper = swiper
-          }}
+          ref={(swiper) => this.swiper = swiper}
           onSwipedRight={(cardIndex) => this.addToListScreen(cardIndex)}
           onSwiped={(cardIndex) => {console.log(cardIndex)}}
           // onTapCard = {() => {setID()}} // this isnt working yets
