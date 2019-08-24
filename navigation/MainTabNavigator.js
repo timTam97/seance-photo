@@ -1,8 +1,9 @@
 import { Icon } from 'expo'
-import React from 'react'
+import React, {Component} from 'react'
 import {
   createBottomTabNavigator,
   createStackNavigator,
+  withNavigationFocus
 } from 'react-navigation'
 import TabBarIcon from '../components/TabBarIcon'
 import HomeScreen from '../screens/HomeScreen'
@@ -38,6 +39,7 @@ const MyListStack = createStackNavigator(
     headerMode: 'none',
   },
 )
+
 
 MyListStack.navigationOptions = {
   tabBarLabel: 'My List',
