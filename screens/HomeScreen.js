@@ -1,8 +1,14 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet } from 'react-native'
+import { SafeAreaView, StyleSheet, View } from 'react-native'
 import Swiper from 'react-native-deck-swiper'
 import { Card } from '../components/Card'
+<<<<<<< Updated upstream
 import { HomeScreenPics, MyListScreenPics } from '../constants/Pics'
+=======
+import { HomeScreenPics } from '../constants/Pics'
+import LikeDislikeButton from '../components/LikeDislikeButton'
+import { BottomTabBar } from 'react-navigation';
+>>>>>>> Stashed changes
 
 class HomeScreen extends React.Component {
   render() {
@@ -19,6 +25,14 @@ class HomeScreen extends React.Component {
           stackSize={2}
           verticalSwipe={false}
         />
+        <View style={styles.buttons}>
+          <View>
+            <LikeDislikeButton></LikeDislikeButton>
+          </View>
+          <View>
+            <LikeDislikeButton></LikeDislikeButton>
+          </View>
+        </View>
       </SafeAreaView>
     )
   }
@@ -51,6 +65,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
   },
+  buttons: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingLeft: 60,
+    position: 'absolute',
+    bottom: 15,
+    width: 350,
+    alignItems: 'center'
+    },
 })
 
 export default HomeScreen
