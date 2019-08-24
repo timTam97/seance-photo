@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
+    "@expo/vector-icons": "^10.0.0",
     "@mdi/js": "^4.1.95",
     "@mdi/react": "^1.2.1",
     "expo": "^34.0.3",

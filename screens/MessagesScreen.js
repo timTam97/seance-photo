@@ -6,7 +6,7 @@ import { Messages } from '../constants/Messages'
 class MessagesScreen extends React.Component {
   onPress = (name) => {
     this.props.navigation.navigate('Chat', {title: name});
-    console.log(name)
+    // console.log(name)
   }
   
   render() {
@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     color: '#A5A5A5',
   },
   padding: {
-    paddingTop: 50,
+    paddingTop: 20,
+    paddingBottom: 150,
   }
 })
 

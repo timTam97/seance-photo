@@ -11,11 +11,19 @@ import MessagesScreen from '../screens/MessagesScreen'
 import ProfileScreen from '../screens/ProfileScreen'
 import MyListScreen from '../screens/MyListScreen'
 import ChatScreen from '../screens/ChatScreen'
+import PortfolioScreen from '../screens/PortfolioScreen'
 
 const Messages = createStackNavigator({
   MessagesScreen,
   Chat: {
     screen: ChatScreen,
+  },
+});
+
+const Portfolio = createStackNavigator({
+  HomeScreen,
+  Portfolio: {
+    screen: PortfolioScreen,
   },
 });
 
