@@ -13,8 +13,6 @@ class HomeScreen extends React.Component {
     MyListScreen: []
   }
 
-
-
   render() {
       const yesbuttontext = 'Yes';
       const nobuttontext = 'No';
