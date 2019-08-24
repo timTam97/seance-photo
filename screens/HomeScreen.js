@@ -9,15 +9,14 @@ class HomeScreen extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <Swiper 
-          onSwipedRight={addToListScreen()}
-          onSwipedLeft={increment()}
           cards={HomeScreenPics}
           renderCard={Card}
-          infinite
           backgroundColor="white"
           cardHorizontalMargin={0}
           stackSize={2}
           verticalSwipe={false}
+          onSwipedRight={addToListScreen}
+          onSwipedLeft={increment}
         />
       </SafeAreaView>
     )
@@ -25,25 +24,17 @@ class HomeScreen extends React.Component {
 }
 var i = 0
 
-Array.prototype.remove = function() {
-  var what, a = arguments, L = a.length, ax;
-  while (L && this.length) {
-      what = a[--L];
-      while ((ax = this.indexOf(what)) !== -1) {
-          this.splice(ax, 1);
-      }
-  }
-  return this;
-};
-
 function increment(){
   i = i + 1
 }
 
-function addToListScreen(){
-  var to_add = HomeScreenPics.splice(i, 1)
-  MyListScreenPics.push(to_add)
-  i = i + 1
+function addToListScreen() {
+ // var to_add = HomeScreenPics.splice(i, 1)
+ var hello = {
+  pic: require('../assets/images/women/women5.jpg'),
+  title: 'Lucy, 27',
+ }
+MyListScreenPics.push(hello)
 }
 
 const styles = StyleSheet.create({
