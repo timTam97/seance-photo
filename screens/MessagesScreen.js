@@ -4,8 +4,8 @@ import { ListItem } from 'react-native-elements'
 import { Messages } from '../constants/Messages'
 
 class MessagesScreen extends React.Component {
-  onPress = () => {
-    this.props.navigation.navigate('Chat', {title: this.props.title});
+  onPress = (name) => {
+    this.props.navigation.navigate('Chat', {title: name});
   }
   
   render() {
@@ -21,7 +21,7 @@ class MessagesScreen extends React.Component {
               subtitle={user.message}
               subtitleStyle={styles.subtitle}
               chevron
-              onPress={this.onPress}
+              onPress={()=>this.onPress(user.title)}
             />
           ))}
         </ScrollView>

@@ -15,23 +15,6 @@ const firebaseConfig = {
     messagingSenderId: "292284181385",
     appId: "1:292284181385:web:66e20ba47c708388"
 };
-firebase.initializeApp(firebaseConfig);
-let db = firebase.firestore();
-let userRef = db.collection('users').doc('1');
-let usersssss;
-let getDoc = userRef.get()
-  .then(doc => {
-    if (!doc.exists) {
-      console.log('No such document!');
-    } else {
-      usersssss = doc.data();
-    }
-  })
-  .catch(err => {
-    console.log('Error getting document', err);
-  });
-
-const { pic, title } = HomeScreenPics[randomNo(1, HomeScreenPics.length)];
 
 
 const Social = ({ name }) => (
@@ -39,22 +22,46 @@ const Social = ({ name }) => (
     name={name}
     type="font-awesome"
     containerStyle={styles.iconContainer}
+    onPress= {() => socialClick(name)}
     size={32}
   />
 ) 
 
+
 class ProfileScreen extends React.Component {
+  state = {
+    user: undefined
+  }
+  socialClick(name) {
+    this
+  }
+  componentDidMount () {
+    firebase.initializeApp(firebaseConfig);
+    let db = firebase.firestore();
+    let userRef = db.collection('users').doc('1');
+    userRef.get().then(doc => {
+    if (!doc.exists) {
+      this.setState({user: {name:" NOT WORKING"}})
+    } else {
+      this.setState({user :doc.data()})
+    }
+
+    })
+  .catch(err => {
+    console.log('Error getting document', err);
+  });
+  }
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image src={usersssss.profilePicture} style={styles.image} />
+          <Image source={this.state.user ? this.state.user.Name : "placeholder.jpg"} style={styles.image} />
         </View>
         <Text h4 style={styles.name}>
-          {usersssss.Name}
+          {this.state.user ? this.state.user.Name : "Loading..."}
         </Text>
-        <Text style={styles.desc}>{usersssss.about}</Text>
         <Divider style={styles.divider} />
+        <Text style={styles.desc}>{this.state.user ? this.state.user.About : "Loading..."}</Text>
         <Text style={styles.desc}>
           I love to travel. I have a cat named pickles, if he likes you, I
           probably will too.
@@ -63,8 +70,7 @@ class ProfileScreen extends React.Component {
         <Text style={styles.desc}>Find me on Social here</Text>
         <View style={styles.socialLinks}>
           <Social name="snapchat" />
-          <Social name="instagram" />
-          <Social name="facebook-square" />
+          <Social name="linkedin" />
         </View>
       </SafeAreaView>
     )

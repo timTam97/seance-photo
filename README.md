@@ -1,5 +1,4 @@
-# expo-tinder
+# hireME
 
-> Tinder Clone using Expo and React Native Elements
 
-![Tinder Swipe GIF](./swipe.gif)
+> Photography freelancing heaven. Made in Expo and React Native
