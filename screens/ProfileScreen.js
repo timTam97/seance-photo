@@ -5,16 +5,6 @@ import Layout from '../constants/Layout'
 import { HomeScreenPics } from '../constants/Pics'
 import { randomNo } from '../utils/randomNo'
 import firebase from 'firebase'
-import '@firebase/firestore';
-const firebaseConfig = {
-    apiKey: "AIzaSyA5w6lXs39fEF-BLdCLIhX7NbEjErqHBF8",
-    authDomain: "hire-test-db2.firebaseapp.com",
-    databaseURL: "https://hire-test-db2.firebaseio.com",
-    projectId: "hire-test-db2",
-    storageBucket: "hire-test-db2.appspot.com",
-    messagingSenderId: "292284181385",
-    appId: "1:292284181385:web:66e20ba47c708388"
-};
 
 
 const Social = ({ name }) => (
@@ -29,28 +19,6 @@ const Social = ({ name }) => (
 
 
 class ProfileScreen extends React.Component {
-  state = {
-    user: undefined
-  }
-  socialClick(name) {
-    this
-  }
-  componentDidMount () {
-    firebase.initializeApp(firebaseConfig);
-    let db = firebase.firestore();
-    let userRef = db.collection('users').doc('1');
-    userRef.get().then(doc => {
-    if (!doc.exists) {
-      this.setState({user: {name:" NOT WORKING"}})
-    } else {
-      this.setState({user :doc.data()})
-    }
-
-    })
-  .catch(err => {
-    console.log('Error getting document', err);
-  });
-  }
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -63,8 +31,7 @@ class ProfileScreen extends React.Component {
         <Divider style={styles.divider} />
         <Text style={styles.desc}>{this.state.user ? this.state.user.About : "Loading..."}</Text>
         <Text style={styles.desc}>
-          I love to travel. I have a cat named pickles, if he likes you, I
-          probably will too.
+          {}
         </Text>
         <Divider style={styles.divider} />
         <Text style={styles.desc}>Find me on Social here</Text>
