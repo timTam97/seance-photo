@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList, ScrollView, StyleSheet, View } from 'react-native'
 import { Text, Tile } from 'react-native-elements'
 import { SafeAreaView, withNavigationFocus } from 'react-navigation'
-import { MyListScreenPics } from '../constants/Pics'
+import { userDB, userLists } from '../constants/Databases'
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -10,7 +10,7 @@ function sleep(ms) {
 // function componentDidUpdate(){
 //   component.forceUpdate()
 // }
-
+const user = 0;
 class MyListScreen extends React.Component {
   componentDidMount(){
     // Toggle the state every second
@@ -34,15 +34,14 @@ class MyListScreen extends React.Component {
             Your shortlist of potential candidates
           </Text>
           <View style={styles.grid}>
-            {MyListScreenPics.map(({ pic, title}, i) => (
+            {userLists[user].listCandidates.map((id) => (
               <Tile
-                imageSrc={pic}
+                imageSrc={userDB[id].pic}
                 activeOpacity={0.9}
-                title={title}
+                title={userDB[id].title}
                 titleStyle={styles.title}
                 featured
-                key={title}
-                onPress={() => this.props.navigation.navigate("Portfolio")}
+                key={userDB[id].title}
               />
             ))}
           </View>
