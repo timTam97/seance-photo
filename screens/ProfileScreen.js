@@ -22,20 +22,21 @@ class ProfileScreen extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image source={this.state.user ? this.state.user.Name : "placeholder.jpg"} style={styles.image} />
+          <Image source={require('../assets/images/profilePictures/Jayden.jpg')} style={styles.image} />
         </View>
         <Text h4 style={styles.name}>
-          {this.state.user ? this.state.user.Name : "Loading..."}
+          Jayden Lee
         </Text>
         <Divider style={styles.divider} />
-        <Text style={styles.desc}>{this.state.user ? this.state.user.About : "Loading..."}</Text>
-        <Text style={styles.desc}>
-          {}
+        <Social name="globe" />
+        <Text style={styles.desc}> Melbourne, Australia
         </Text>
+        <Text style={styles.desc}>I am an experienced event photographer and have done gigs for many artists and concerts, notably Marshmallo and Avici. I regularly try to push myself to get the most creative and innovative shots possible. Send me a message and we can chat :)</Text>
+        
         <Divider style={styles.divider} />
-        <Text style={styles.desc}>Find me on Social here</Text>
+        <Text style={styles.desc}>Find me on Socials here</Text>
         <View style={styles.socialLinks}>
-          <Social name="snapchat" />
+          <Social name="instagram" />
           <Social name="linkedin" />
         </View>
       </SafeAreaView>

@@ -16,6 +16,7 @@ class HomeScreen extends React.Component {
 
   render() {
       const yesbuttontext = 'Yes';
+      
       const nobuttontext = 'No';
       
     return (
