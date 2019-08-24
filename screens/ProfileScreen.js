@@ -50,8 +50,12 @@ class ProfileScreen extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image source={"https://i.imgur.com/ADmb3H1.jpg"} style={styles.image} />
+          {/* <Image src={usersssss.profilePicture} style={styles.image} /> */}
         </View>
+        <Text h4 style={styles.name}>
+          {usersssss.Name} 
+        </Text>
+        <Text style={styles.desc}>{usersssss.about}</Text>
         <Divider style={styles.divider} />
         <Text style={styles.desc}>
           I love to travel. I have a cat named pickles, if he likes you, I
