@@ -40,8 +40,7 @@ class Fire {
     on = callback =>
         this.ref
             .limitToLast(20)
-            .on('child_added', snapshot =>
-            callback(this.parse(snapshot)));
+            .on('child_added', snapshot => callback(this.parse(snapshot)));
     
     parse = snapshot => {
         const { timestamp: numberStamp, text, user } = snapshot.val();
@@ -79,7 +78,7 @@ class Fire {
                 user,
                 timestamp: this.timestamp,
             };
-            this.append(message);
+            firebase.database().ref('messages').push(messsage);
         }
     };
 

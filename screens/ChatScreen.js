@@ -1,13 +1,16 @@
 import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text, Platform } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
-import KeyboardSpacer from 'react-native-gifted-chat';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 import Fire from '../Fire';
+import { Header } from 'react-navigation';
 
 class ChatScreen extends React.Component {
     static navigationOptions = ({navigation}) => ({
         title: navigation.getParam('title')
+
     });
+    
 
     state = {
         messages: [
@@ -25,21 +28,23 @@ class ChatScreen extends React.Component {
     };
 
     render() {
+        console.log(this.state.messages)
+
         return(
-            <View>
+            <View style={styles.container}>
                 <GiftedChat
                     messages={this.state.messages}
                     onSend={Fire.shared.send}
                     user={this.user}
                 />
-                { Platform.OS ==='android' ? <KeyboardSpacer /> : null}
+                {Platform.OS === 'android' ? <KeyboardSpacer /> : null }
             </View>
-
         );
     }
 
     componentDidMount() {
-        Fire.shared.on(message => this.setState(previousState => ({
+        Fire.shared.on(message => 
+            this.setState(previousState => ({
                 messages: GiftedChat.append(previousState.messages, message),
             }))
         );
@@ -51,10 +56,16 @@ class ChatScreen extends React.Component {
 
     get user() {
         return {
-            name: this.props.navigation.state.params.name,
+            name: this.props.navigation.getParam('name'),
             _id: Fire.shared.uid,
         };
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    }
+})
 
 export default ChatScreen;
