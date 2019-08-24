@@ -1,11 +1,10 @@
 import React from 'react'
-import { Image, SafeAreaView, StyleSheet, View } from 'react-native'
+import { Image, SafeAreaView, StyleSheet, View, ScrollView } from 'react-native'
 import { Divider, Icon, Text } from 'react-native-elements'
 import Layout from '../constants/Layout'
 import { StaticScreenPics } from '../constants/Pics'
 import { MyListScreenPics } from '../constants/Pics'
 import { randomNo } from '../utils/randomNo'
-import firebase from 'firebase'
 
 
 const Social = ({ name }) => (
@@ -23,15 +22,15 @@ class ProfileScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        
+        <ScrollView>
         {/* profile pic */}
         <View style={styles.imageContainer}>
           <Image source={StaticScreenPics[0].pic} style={styles.image} />
         </View>
 
         {/* Name */}
-        <Text h4 style={styles.name}>
           {StaticScreenPics[0].title}
+        <Text h4 style={styles.name}>
         </Text>
 
         <Divider style={styles.divider} />
@@ -53,7 +52,7 @@ class ProfileScreen extends React.Component {
         <View style={styles.socialLinks}>
           <Social name="instagram" />
           <Social name="linkedin" />
-        </View>
+        </ScrollView>
       </SafeAreaView>
     )
   }
@@ -63,6 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    paddingTop: 50,
   },
   imageContainer: {
     margin: 20,
