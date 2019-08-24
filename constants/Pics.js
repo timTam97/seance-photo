@@ -1,6 +1,6 @@
 import listArray from '../utils/listArray'
 
-export var HomeScreenPics = ([
+export var HomeScreenPics = listArray([ // Shuffle
   {
     pic: require('../assets/images/women/women1.jpg'),
     title: 'Amelia',
