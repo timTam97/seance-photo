@@ -22,12 +22,12 @@ const HomeStack = createStackNavigator(
 )
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Freelancers',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       Icon={Icon.MaterialCommunityIcons}
       focused={focused}
-      name="fire"
+      name="account-search"
     />
   ),
 }
@@ -76,9 +76,9 @@ const ProfileStack = createStackNavigator(
 )
 
 ProfileStack.navigationOptions = {
-  tabBarLabel: 'Profile',
+  tabBarLabel: 'My Company',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon Icon={Icon.Feather} focused={focused} name="user" />
+    <TabBarIcon Icon={Icon.Feather} focused={focused} name="home" />
   ),
 }
 
