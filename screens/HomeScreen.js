@@ -63,7 +63,7 @@ class HomeScreen extends React.Component {
         
         <View style={styles.buttons}>
           <View>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Portfolio')} style={styles.portfolio} activeOpacity = { .5 }>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Portfolio")} style={styles.portfolio} activeOpacity = { .5 }>
               <Text style={styles.TextStyle}>
                 See profile
               </Text>

@@ -4,6 +4,7 @@ import Layout from '../constants/Layout'
  
 
 class PortfolioScreen extends React.Component {
+
     render() {
         return(
             <SafeAreaView style={styles.container}>
