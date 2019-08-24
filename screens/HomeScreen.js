@@ -6,6 +6,7 @@ import { HomeScreenPics, MyListScreenPics } from '../constants/Pics'
 import LikeDislikeButton from '../components/LikeDislikeButton'
 import { BottomTabBar } from 'react-navigation';
 import MyListScreen from './MyListScreen';
+import { GiftedChat } from 'react-native-gifted-chat';
 
 class HomeScreen extends React.Component {
 
@@ -18,11 +19,10 @@ class HomeScreen extends React.Component {
       const nobuttontext = 'No';
       
     return (
-    
+     
       <SafeAreaView style={styles.container}>
         <Swiper 
           onSwipedRight={ () => {addToListScreen(3)} }
-          //onSwipedRight={addToListScreen()}
           onSwipedLeft={ () => {increment(3)} }
           cards={HomeScreenPics}
           renderCard={Card}
@@ -46,8 +46,6 @@ class HomeScreen extends React.Component {
 }
 var i = 0
 
-
-
 function increment(){
   i = i + 1
 }
@@ -55,7 +53,6 @@ function increment(){
 function addToListScreen(number){
   var to_add = HomeScreenPics[i]
   MyListScreenPics.push(to_add)
-  //console.log(MyListScreenPics)
   i = i + 1
 }
 

@@ -4,7 +4,6 @@ import { Divider, Icon, Text } from 'react-native-elements'
 import Layout from '../constants/Layout'
 import { HomeScreenPics } from '../constants/Pics'
 import { randomNo } from '../utils/randomNo'
-import firebase from 'firebase'
 
 
 const Social = ({ name }) => (

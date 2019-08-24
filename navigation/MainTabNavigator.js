@@ -30,6 +30,10 @@ HomeStack.navigationOptions = {
       name="account-search"
     />
   ),
+  header: props => <CustomHeader {...props}/>,
+  headerStyle: {
+    backgroundColor: "transparent"
+  }
 }
 
 const MyListStack = createStackNavigator(

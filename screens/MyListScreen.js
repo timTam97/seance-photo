@@ -24,7 +24,6 @@ class MyListScreen extends React.Component {
   
   render() {
     //componentDidUpdate()
-    console.log("hhh" + MyListScreenPics)
     return (
       <SafeAreaView style={styles.padding}>
         <ScrollView>

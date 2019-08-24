@@ -9,40 +9,34 @@ class ChatScreen extends React.Component {
     });
 
     state = {
-        messages: [{
-            _id: 1,
-            text: 'Hello developer',
-            createdAt: new Date(),
-            user: {
-              _id: 2,
-              name: 'React Native',
-              avatar: 'https://placeimg.com/140/140/any',
+        messages: [
+            {
+              _id: 1,
+              text: 'Hello developer',
+              createdAt: new Date(),
+              user: {
+                _id: 2,
+                name: 'React Native',
+                avatar: 'https://placeimg.com/140/140/any',
+              },
             },
-          },],
+          ],
     };
 
-
     render() {
-        console.log(this.user)
         return(
-            <SafeAreaView>
-                <GiftedChat
-                    messages={this.state.messages}
-                    onSend={Fire.shared.send}
-                    user={{
-                        _id: 1,
-                      }}
-                />
-            </SafeAreaView>
+            <GiftedChat
+                messages={this.state.messages}
+                onSend={Fire.shared.send}
+                user={this.user}
+            />
         );
     }
 
     componentDidMount() {
-        Fire.shared.on(message => 
-            {
-            this.setState(previousState => ({
+        Fire.shared.on(message => this.setState(previousState => ({
                 messages: GiftedChat.append(previousState.messages, message),
-            }))}
+            }))
         );
     }
 
@@ -58,9 +52,5 @@ class ChatScreen extends React.Component {
     }
 }
 
-
-// const styles = StyleSheet.create({
-
-// })
 
 export default ChatScreen;
