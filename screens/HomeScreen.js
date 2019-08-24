@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, SafeAreaView, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Button, SafeAreaView, StyleSheet, View, TouchableOpacity, Text } from 'react-native'
 import Swiper from 'react-native-deck-swiper'
 import { Card } from '../components/Card'
 import { HomeScreenPics, MyListScreenPics } from '../constants/Pics'
@@ -9,8 +9,10 @@ import MyListScreen from './MyListScreen';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import {Icon} from '@expo/vector-icons';
 
 class HomeScreen extends React.Component {
+
   constructor (props) {
     super(props)
     this.state = {
@@ -52,13 +54,25 @@ class HomeScreen extends React.Component {
           cardHorizontalMargin={0}
           stackSize={2}
           verticalSwipe={false}
+          // onTapCard = {() => this.props.navigation.navigate('Portfolio')}
         />
+        <View style={styles.portfolio}>
+          <Button onPress={() => this.props.navigation.navigate('Portfolio')} title='See profile'></Button>
+        </View>
         <View style={styles.buttons}>
           <View>
-            <Button onPress={() => this.emSwipeLeft()} title={nobuttontext} ></Button>
+            <TouchableOpacity onPress={() => this.emSwipeLeft()} style={styles.redButtonStyle} activeOpacity = { .5 }>
+              <Text style={styles.TextStyle}> 
+                Reject
+              </Text>
+            </TouchableOpacity>
           </View>
           <View>
-            <Button onPress={() => this.emSwipeRight()} title={yesbuttontext}></Button>
+            <TouchableOpacity onPress={() => this.emSwipeRight()} style={styles.greenButtonStyle} activeOpacity = { .5 }>
+              <Text style={styles.TextStyle}> 
+                Accept
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </SafeAreaView>
@@ -80,8 +94,43 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 15,
     width: 350,
-    alignItems: 'center'
-    },
+    alignItems: 'center',
+  },
+  portfolio: {
+    width: 350,
+    justifyContent: 'center',
+    flex: 3,
+    flexDirection: 'row',
+    height: 40,
+    position: 'absolute',
+    bottom: 120,
+    left: 150
+  },
+  greenButtonStyle: {
+    paddingTop: 12,
+    paddingBottom: 12,
+    backgroundColor: 'green',
+    borderRadius: 5,
+    marginBottom: 2,
+    padding: 35,
+    bottom: 0,
+},
+redButtonStyle: {
+  paddingTop: 12,
+  paddingBottom: 12,
+  backgroundColor: 'red',
+  borderRadius: 5,
+  marginBottom: 2,
+  padding: 35,
+  bottom: 0,
+},
+
+TextStyle: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+}
 })
 
 export default HomeScreen

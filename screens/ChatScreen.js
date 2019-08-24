@@ -10,18 +10,17 @@ class ChatScreen extends React.Component {
         title: navigation.getParam('title')
 
     });
-    
 
     state = {
         messages: [
             {
               _id: 1,
-              text: 'Hello developer',
+              text: "You have liked Jayden's portfolio. Send him a message!",
               createdAt: new Date(),
               user: {
                 _id: 2,
-                name: 'React Native',
-                avatar: 'https://placeimg.com/140/140/any',
+                name: 'Jayden',
+                avatar: '../images/profilePictures/Jayden.jpg',
               },
             },
           ],
