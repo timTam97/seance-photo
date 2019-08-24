@@ -25,7 +25,7 @@ class ProfileScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        {/* <ScrollView> */}
+        <ScrollView>
         {/* profile pic */}
         <View style={styles.imageContainer}>
           <Image source={StaticScreenPics[id].pic} style={styles.image} />
@@ -59,7 +59,7 @@ class ProfileScreen extends React.Component {
           <Social name="instagram"/>
           <Social name="linkedin" />
           </View>
-        {/* </ScrollView> */}
+        </ScrollView>
       </SafeAreaView>
     )
   }
