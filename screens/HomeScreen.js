@@ -7,7 +7,6 @@ import LikeDislikeButton from '../components/LikeDislikeButton'
 import { BottomTabBar } from 'react-navigation';
 import MyListScreen from './MyListScreen';
 import { GiftedChat } from 'react-native-gifted-chat';
-import { Button } from 'react-native';
 
 class HomeScreen extends React.Component {
   constructor (props) {
