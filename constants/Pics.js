@@ -103,7 +103,7 @@ export const HomeScreenPics = shuffleArray([
   },
 ])
 
-export const TopPicksScreenPics = shuffleArray([
+export const MyListScreenPics = shuffleArray([
   {
     pic: require('../assets/images/women/women11.jpg'),
     title: 'Annie, 40',
