@@ -21,16 +21,19 @@ const styles = StyleSheet.create({
         margin: 20
     },
     ButtonStyle: {
-        paddingTop: 10,
-        paddingBottom: 10,
-        backgroundColor: '#636F62',
+        paddingTop: 12,
+        paddingBottom: 12,
+        backgroundColor: '#fff',
         borderRadius: 5,
-        marginBottom: 20,
-        padding: 30,
+        marginBottom: 2,
+        padding: 35,
+        bottom: 0,
     },
     TextStyle: {
-        color: '#fff',
+        color: '#000',
         textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 18,
     }
 });
 

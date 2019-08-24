@@ -5,24 +5,31 @@ import { Card } from '../components/Card'
 import { HomeScreenPics, MyListScreenPics } from '../constants/Pics'
 import LikeDislikeButton from '../components/LikeDislikeButton'
 import { BottomTabBar } from 'react-navigation';
+import MyListScreen from './MyListScreen';
 
 class HomeScreen extends React.Component {
+
+  state = {
+    MyListScreen: []
+  }
+
+
 
   render() {
       const yesbuttontext = 'Yes';
       const nobuttontext = 'No';
       
     return (
-      
-
+    
       <SafeAreaView style={styles.container}>
         <Swiper 
-          onSwipedRight={addToListScreen()}
-          onSwipedLeft={increment()}
+          onSwipedRight={ () => {addToListScreen(3)} }
+          //onSwipedRight={addToListScreen()}
+          onSwipedLeft={ () => {increment(3)} }
           cards={HomeScreenPics}
           renderCard={Card}
           infinite
-          backgroundColor="white"
+          backgroundColor="#24262A"
           cardHorizontalMargin={0}
           stackSize={2}
           verticalSwipe={false}
@@ -41,24 +48,16 @@ class HomeScreen extends React.Component {
 }
 var i = 0
 
-Array.prototype.remove = function() {
-  var what, a = arguments, L = a.length, ax;
-  while (L && this.length) {
-      what = a[--L];
-      while ((ax = this.indexOf(what)) !== -1) {
-          this.splice(ax, 1);
-      }
-  }
-  return this;
-};
+
 
 function increment(){
   i = i + 1
 }
 
-function addToListScreen(){
-  var to_add = HomeScreenPics.splice(i, 1)
+function addToListScreen(number){
+  var to_add = HomeScreenPics[i]
   MyListScreenPics.push(to_add)
+  //console.log(MyListScreenPics)
   i = i + 1
 }
 
