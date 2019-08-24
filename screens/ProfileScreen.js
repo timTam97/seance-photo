@@ -17,44 +17,49 @@ const Social = ({ name }) => (
   />
 ) 
 
+//  range here is [0,5]
+
+var id = 3 // TRY SETTING THIS FROM HOMESCREEN
 
 class ProfileScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView>
+        {/* <ScrollView> */}
         {/* profile pic */}
         <View style={styles.imageContainer}>
-          <Image source={StaticScreenPics[0].pic} style={styles.image} />
+          <Image source={StaticScreenPics[id].pic} style={styles.image} />
         </View>
 
         {/* Name */}
           
         <Text h4 style={styles.name}>
-        {StaticScreenPics[0].title}
+        {StaticScreenPics[id].title}
         </Text>
 
         <Divider style={styles.divider} />
 
-        <Social name="globe" />
+        {/* <Social name="globe" /> */}
         
         {/* Location */}
         <Text style={styles.desc}>
-        {StaticScreenPics[0].location}
+          Based in {""}
+          <Text style={{fontWeight: "bold"}}>{StaticScreenPics[id].location}</Text>
+          
         </Text>
 
         {/* long-ass spiel */}
         <Text style={styles.desc}>
-          {StaticScreenPics[0].aboutExt}
+          {StaticScreenPics[id].aboutExt}
         </Text>
         
         <Divider style={styles.divider} />
         <Text style={styles.desc}>Find me on Socials here</Text>
         <View style={styles.socialLinks}>
-          <Social name="instagram" />
+          <Social name="instagram"/>
           <Social name="linkedin" />
           </View>
-        </ScrollView>
+        {/* </ScrollView> */}
       </SafeAreaView>
     )
   }

@@ -25,6 +25,7 @@ class HomeScreen extends React.Component {
         <Swiper 
           onSwipedRight={ () => {addToListScreen(3)} }
           onSwipedLeft={ () => {increment(3)} }
+          onTapCard = {() => {setID()}} // this isnt working yets
           cards={HomeScreenPics}
           renderCard={Card}
           infinite
@@ -49,6 +50,10 @@ var i = 0
 
 function increment(){
   i = i + 1
+}
+
+function setID(){
+  console.log("testing")
 }
 
 function addToListScreen(number){
