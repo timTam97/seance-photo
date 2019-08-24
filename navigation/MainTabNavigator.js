@@ -12,86 +12,56 @@ import ProfileScreen from '../screens/ProfileScreen'
 import MyListScreen from '../screens/MyListScreen'
 import ChatScreen from '../screens/ChatScreen'
 
-const MainStack = createStackNavigator(
-  {
-    Home: HomeScreen,
-  },
-  {
-    headerMode: 'none',
-  },
-)
-
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Freelancers',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      Icon={Icon.MaterialCommunityIcons}
-      focused={focused}
-      name="account-search"
-    />
-  ),
-  header: props => <CustomHeader {...props}/>,
-  headerStyle: {
-    backgroundColor: "transparent"
-  }
-}
-
-const MyListStack = createStackNavigator(
-  {
-    MyList: MyListScreen,
-  },
-  {
-    headerMode: 'none',
-  },
-)
-
-
-MyListStack.navigationOptions = {
-  tabBarLabel: 'My List',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="list" />
-  ),
-}
-
-const MessagesStack = createStackNavigator(
-  {
+const MainStack = createStackNavigator({
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarLabel: 'Freelancers',
+        tabBarIcon: ({ focused }) => (
+          <TabBarIcon
+            Icon={Icon.MaterialCommunityIcons}
+            focused={focused}
+            name="account-search"
+          />
+        ),
+        // header: props => <CustomHeader {...props}/>,
+        //   headerStyle: {
+        //   backgroundColor: "transparent"
+        // }
+      }
+    },
+    MyList: {
+      screen: MyListScreen,
+      navigationOptions: {
+        tabBarLabel: 'My List',
+        tabBarIcon: ({ focused }) => (
+          <TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="list" />
+        ),
+      }
+    },
     Messages: {
       screen: MessagesScreen,
-      navigationOptions: { tabBarIcon: () => {} }
+      navigationOptions: {  
+        tabBarLabel: 'Messages', 
+        tabBarIcon: ({focused}) => 
+          (<TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="commenting-o" />
+        ),
+      }
     },
-    Chat: ChatScreen,
-  },
-  {
-    // headerMode: 'float',
-  },
-)
-
-MessagesStack.navigationOptions = {
-  tabBarLabel: 'Messages',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="commenting-o" />
-  ),
-}
-
-const ProfileStack = createStackNavigator(
-  {
-    Profile: ProfileScreen,
-  },
-  {
-    headerMode: 'none',
-  },
-)
-
-ProfileStack.navigationOptions = {
-  tabBarLabel: 'My Company',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon Icon={Icon.Feather} focused={focused} name="home" />
-  ),
-}
+    Chat: {
+      screen: ChatScreen,
+    },    
+    Profile: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        tabBarLabel: 'My Company',
+        tabBarIcon: ({ focused }) =>
+          (<TabBarIcon Icon={Icon.Feather} focused={focused} name="home" />
+        )
+      }
+    },
+  });
 
 export default createBottomTabNavigator({
-  HomeStack,
-  MyListStack,
-  MessagesStack,
-  ProfileStack,
+  MainStack
 })
