@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, SafeAreaView, StyleSheet, View } from 'react-native'
+import { Image, SafeAreaView, StyleSheet, View, ScrollView } from 'react-native'
 import { Divider, Icon, Text } from 'react-native-elements'
 import Layout from '../constants/Layout'
 import { HomeScreenPics } from '../constants/Pics'
@@ -21,24 +21,26 @@ class ProfileScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <View style={styles.imageContainer}>
-          <Image source={require('../assets/images/profilePictures/Jayden.jpg')} style={styles.image} />
-        </View>
-        <Text h4 style={styles.name}>
-          Jayden Lee
-        </Text>
-        <Divider style={styles.divider} />
-        <Social name="globe" />
-        <Text style={styles.desc}> Melbourne, Australia
-        </Text>
-        <Text style={styles.desc}>I am an experienced event photographer and have done gigs for many artists and concerts, notably Marshmallo and Avici. I regularly try to push myself to get the most creative and innovative shots possible. Send me a message and we can chat :)</Text>
-        
-        <Divider style={styles.divider} />
-        <Text style={styles.desc}>Find me on Socials here</Text>
-        <View style={styles.socialLinks}>
-          <Social name="instagram" />
-          <Social name="linkedin" />
-        </View>
+        <ScrollView>
+          <View style={styles.imageContainer}>
+            <Image source={require('../assets/images/profilePictures/Jayden.jpg')} style={styles.image} />
+          </View>
+          <Text h4 style={styles.name}>
+            Jayden Lee
+          </Text>
+          <Divider style={styles.divider} />
+          <Social name="globe" />
+          <Text style={styles.desc}> Melbourne, Australia
+          </Text>
+          <Text style={styles.desc}>I am an experienced event photographer and have done gigs for many artists and concerts, notably Marshmallo and Avici. I regularly try to push myself to get the most creative and innovative shots possible. Send me a message and we can chat :)</Text>
+          
+          <Divider style={styles.divider} />
+          <Text style={styles.desc}>Find me on Socials here</Text>
+          <View style={styles.socialLinks}>
+            <Social name="instagram" />
+            <Social name="linkedin" />
+          </View>
+        </ScrollView>
       </SafeAreaView>
     )
   }
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    paddingTop: 50,
   },
   imageContainer: {
     margin: 20,
