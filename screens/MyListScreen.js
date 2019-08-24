@@ -26,10 +26,10 @@ class MyListScreen extends React.Component {
     //componentDidUpdate()
     console.log("hhh" + MyListScreenPics)
     return (
-      <SafeAreaView>
+      <SafeAreaView style={styles.padding}>
         <ScrollView>
           <Text h2 h2Style={styles.h2Style}>
-            Your list
+            My List
           </Text>
           <Text h4 h4Style={styles.h4Style}>
             Your shortlist of potential candidates
@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     marginBottom: -2,
     padding: 10,
+  },
+  padding: {
+    paddingTop: 50,
   },
 })
 

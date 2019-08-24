@@ -4,10 +4,14 @@ import { ListItem } from 'react-native-elements'
 import { Messages } from '../constants/Messages'
 
 class MessagesScreen extends React.Component {
+  onPress = () => {
+    this.props.navigation.navigate('Chat', {title: this.props.title});
+  }
+  
   render() {
     return (
       <SafeAreaView>
-        <ScrollView>
+        <ScrollView style={styles.padding}>
           {Messages.map((user, i) => (
             <ListItem
               key={i}
@@ -17,6 +21,7 @@ class MessagesScreen extends React.Component {
               subtitle={user.message}
               subtitleStyle={styles.subtitle}
               chevron
+              onPress={this.onPress}
             />
           ))}
         </ScrollView>
@@ -33,6 +38,9 @@ const styles = StyleSheet.create({
   subtitle: {
     color: '#A5A5A5',
   },
+  padding: {
+    paddingTop: 50,
+  }
 })
 
-export default MessagesScreen
+export default MessagesScreen;

@@ -10,6 +10,7 @@ import HomeScreen from '../screens/HomeScreen'
 import MessagesScreen from '../screens/MessagesScreen'
 import ProfileScreen from '../screens/ProfileScreen'
 import MyListScreen from '../screens/MyListScreen'
+import ChatScreen from '../screens/ChatScreen'
 
 const HomeStack = createStackNavigator(
   {
@@ -51,6 +52,7 @@ MyListStack.navigationOptions = {
 const MessagesStack = createStackNavigator(
   {
     Messages: MessagesScreen,
+    Chat: ChatScreen,
   },
   {
     headerMode: 'none',
@@ -80,9 +82,23 @@ ProfileStack.navigationOptions = {
   ),
 }
 
+// const ChatStack = createStackNavigator(
+//   {
+//     Chat: ChatScreen,
+//   },
+//   {
+//     headerMode: 'none',
+//   },
+// )
+
+// ChatStack.navigationOptions = {
+  
+// }
+
 export default createBottomTabNavigator({
   HomeStack,
   MyListStack,
   MessagesStack,
   ProfileStack,
+  // ChatStack
 })

@@ -20,6 +20,7 @@ class HomeScreen extends React.Component {
       const nobuttontext = 'No';
       
     return (
+    
       <SafeAreaView style={styles.container}>
         <Swiper 
           onSwipedRight={ () => {addToListScreen(3)} }
@@ -28,7 +29,7 @@ class HomeScreen extends React.Component {
           cards={HomeScreenPics}
           renderCard={Card}
           infinite
-          backgroundColor="white"
+          backgroundColor="#24262A"
           cardHorizontalMargin={0}
           stackSize={2}
           verticalSwipe={false}
