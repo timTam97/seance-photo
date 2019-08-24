@@ -30,6 +30,10 @@ HomeStack.navigationOptions = {
       name="account-search"
     />
   ),
+  header: props => <CustomHeader {...props}/>,
+  headerStyle: {
+    backgroundColor: "transparent"
+  }
 }
 
 const MyListStack = createStackNavigator(
@@ -82,23 +86,9 @@ ProfileStack.navigationOptions = {
   ),
 }
 
-// const ChatStack = createStackNavigator(
-//   {
-//     Chat: ChatScreen,
-//   },
-//   {
-//     headerMode: 'none',
-//   },
-// )
-
-// ChatStack.navigationOptions = {
-  
-// }
-
 export default createBottomTabNavigator({
   HomeStack,
   MyListStack,
   MessagesStack,
   ProfileStack,
-  // ChatStack
 })
