@@ -26,13 +26,13 @@ class ChatScreen extends React.Component {
         console.log(this.user)
         return(
             <SafeAreaView>
-                {/* <GiftedChat
+                <GiftedChat
                     messages={this.state.messages}
                     onSend={Fire.shared.send}
                     user={{
                         _id: 1,
                       }}
-                /> */}<Text>hello</Text>
+                />
             </SafeAreaView>
         );
     }
