@@ -33,9 +33,9 @@ class HomeScreen extends React.Component {
   MyListScreenPics.push(to_add)
   }
   render() {
-      const yesbuttontext = 'Yes';
+      const yesbuttontext = 'Accept';
       
-      const nobuttontext = 'No';
+      const nobuttontext = 'Reject';
     return (
       <SafeAreaView style={styles.container}>
         <Swiper 
