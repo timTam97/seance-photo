@@ -1,6 +1,7 @@
 import React from 'react'
-import { SafeAreaView, View, StyleSheet, Text } from 'react-navigation';
+import { SafeAreaView, View, StyleSheet, Text, Platform } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
+import KeyboardSpacer from 'react-native-gifted-chat';
 import Fire from '../Fire';
 
 class ChatScreen extends React.Component {
@@ -25,11 +26,15 @@ class ChatScreen extends React.Component {
 
     render() {
         return(
-            <GiftedChat
-                messages={this.state.messages}
-                onSend={Fire.shared.send}
-                user={this.user}
-            />
+            <View>
+                <GiftedChat
+                    messages={this.state.messages}
+                    onSend={Fire.shared.send}
+                    user={this.user}
+                />
+                { Platform.OS ==='android' ? <KeyboardSpacer /> : null}
+            </View>
+
         );
     }
 
