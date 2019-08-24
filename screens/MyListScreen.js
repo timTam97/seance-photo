@@ -13,17 +13,15 @@ class MyListScreen extends React.Component {
             Your list
           </Text>
           <Text h4 h4Style={styles.h4Style}>
-            Your shortlist of potential candidates.
+            Your shortlist of potential candidates
           </Text>
           <View style={styles.grid}>
-            {MyListScreenPics.map(({ pic, title, caption }, i) => (
+            {MyListScreenPics.map(({ pic, title}, i) => (
               <Tile
                 imageSrc={pic}
                 activeOpacity={0.9}
                 title={title}
                 titleStyle={styles.title}
-                caption={caption}
-                captionStyle={styles.caption}
                 featured
                 key={title}
               />
@@ -55,14 +53,6 @@ const styles = StyleSheet.create({
     bottom: 50,
     backgroundColor: 'black',
     marginBottom: -2,
-    padding: 10,
-  },
-  caption: {
-    position: 'absolute',
-    left: 10,
-    bottom: 0,
-    backgroundColor: 'black',
-    marginTop: 10,
     padding: 10,
   },
 })

@@ -1,6 +1,6 @@
-import shuffleArray from '../utils/shuffleArray'
+import listArray from '../utils/listArray'
 
-export const Messages = shuffleArray([
+export const Messages = listArray([
   {
     pic: require('../assets/images/women/women1.jpg'),
     title: 'Amelia, 27',

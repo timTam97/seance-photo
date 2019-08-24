@@ -40,9 +40,9 @@ const MyListStack = createStackNavigator(
 )
 
 MyListStack.navigationOptions = {
-  tabBarLabel: 'MyList',
+  tabBarLabel: 'My List',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="diamond" />
+    <TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="list" />
   ),
 }
 
