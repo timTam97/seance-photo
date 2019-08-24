@@ -70,7 +70,7 @@ class Fire {
     }
 
     send = messages => {
-        for (let i = 0; i < messages.lenght; i++) {
+        for (let i = 0; i < messages.length; i++) {
             const { text, user } = messages[i];
 
             const message = {
@@ -78,7 +78,7 @@ class Fire {
                 user,
                 timestamp: this.timestamp,
             };
-            firebase.database().ref('messages').push(messsage);
+            firebase.database().ref('messages').push(message);
         }
     };
 

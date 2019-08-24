@@ -1,4 +1,6 @@
-import { AppLoading, Asset, Font, Icon } from 'expo'
+import { AppLoading, Icon } from 'expo'
+import { Asset } from 'expo-asset';
+import { Font } from 'expo-font'
 import React from 'react'
 import { StatusBar, StyleSheet, View } from 'react-native'
 import AppNavigator from './navigation/AppNavigator'
