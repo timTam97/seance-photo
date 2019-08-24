@@ -22,13 +22,18 @@ const Social = ({ name }) => (
     name={name}
     type="font-awesome"
     containerStyle={styles.iconContainer}
+    onPress= {() => socialClick(name)}
     size={32}
   />
 ) 
 
+
 class ProfileScreen extends React.Component {
   state = {
     user: undefined
+  }
+  socialClick(name) {
+    this
   }
   componentDidMount () {
     firebase.initializeApp(firebaseConfig);
@@ -50,9 +55,13 @@ class ProfileScreen extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image source={"https://i.imgur.com/ADmb3H1.jpg"} style={styles.image} />
+          <Image source={this.state.user ? this.state.user.Name : "placeholder.jpg"} style={styles.image} />
         </View>
+        <Text h4 style={styles.name}>
+          {this.state.user ? this.state.user.Name : "Loading..."}
+        </Text>
         <Divider style={styles.divider} />
+        <Text style={styles.desc}>{this.state.user ? this.state.user.About : "Loading..."}</Text>
         <Text style={styles.desc}>
           I love to travel. I have a cat named pickles, if he likes you, I
           probably will too.
