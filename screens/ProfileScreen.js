@@ -4,8 +4,35 @@ import { Divider, Icon, Text } from 'react-native-elements'
 import Layout from '../constants/Layout'
 import { HomeScreenPics } from '../constants/Pics'
 import { randomNo } from '../utils/randomNo'
+import firebase from 'firebase'
+import '@firebase/firestore';
+const firebaseConfig = {
+    apiKey: "AIzaSyA5w6lXs39fEF-BLdCLIhX7NbEjErqHBF8",
+    authDomain: "hire-test-db2.firebaseapp.com",
+    databaseURL: "https://hire-test-db2.firebaseio.com",
+    projectId: "hire-test-db2",
+    storageBucket: "hire-test-db2.appspot.com",
+    messagingSenderId: "292284181385",
+    appId: "1:292284181385:web:66e20ba47c708388"
+};
+firebase.initializeApp(firebaseConfig);
+let db = firebase.firestore();
+let userRef = db.collection('users').doc('1');
+let usersssss;
+let getDoc = userRef.get()
+  .then(doc => {
+    if (!doc.exists) {
+      console.log('No such document!');
+    } else {
+      usersssss = doc.data();
+    }
+  })
+  .catch(err => {
+    console.log('Error getting document', err);
+  });
 
-const { pic, title } = HomeScreenPics[randomNo(1, HomeScreenPics.length)]
+const { pic, title } = HomeScreenPics[randomNo(1, HomeScreenPics.length)];
+
 
 const Social = ({ name }) => (
   <Icon
@@ -14,19 +41,19 @@ const Social = ({ name }) => (
     containerStyle={styles.iconContainer}
     size={32}
   />
-)
+) 
 
 class ProfileScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image source={pic} style={styles.image} />
+          <Image src={usersssss.profilePicture} style={styles.image} />
         </View>
         <Text h4 style={styles.name}>
-          {title}
+          {usersssss.Name}
         </Text>
-        <Text style={styles.desc}>Fashion Designer at Amelia & Co.</Text>
+        <Text style={styles.desc}>{usersssss.about}</Text>
         <Divider style={styles.divider} />
         <Text style={styles.desc}>
           I love to travel. I have a cat named pickles, if he likes you, I

@@ -1,16 +1,35 @@
 import React from 'react'
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { FlatList, ScrollView, StyleSheet, View } from 'react-native'
 import { Text, Tile } from 'react-native-elements'
-import { SafeAreaView } from 'react-navigation'
+import { SafeAreaView, withNavigationFocus } from 'react-navigation'
 import { MyListScreenPics } from '../constants/Pics'
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+// function componentDidUpdate(){
+//   component.forceUpdate()
+// }
+
 class MyListScreen extends React.Component {
+  componentDidMount(){
+    // Toggle the state every second
+    setInterval(() => (
+      this.setState(previousState => (
+        { isShowingText: !previousState.isShowingText }
+      ))
+    ), 1000);
+  }
+  state = { isShowingText: true };
+  
   render() {
+    //componentDidUpdate()
+    console.log("hhh" + MyListScreenPics)
     return (
-      <SafeAreaView>
+      <SafeAreaView style={styles.padding}>
         <ScrollView>
           <Text h2 h2Style={styles.h2Style}>
-            Your list
+            My List
           </Text>
           <Text h4 h4Style={styles.h4Style}>
             Your shortlist of potential candidates
@@ -54,6 +73,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     marginBottom: -2,
     padding: 10,
+  },
+  padding: {
+    paddingTop: 50,
   },
 })
 
