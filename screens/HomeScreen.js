@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, SafeAreaView, StyleSheet, View, TouchableOpacity, Text } from 'react-native'
 import Swiper from 'react-native-deck-swiper'
 import { Card } from '../components/Card'
-import { HomeScreenPics, MyListScreenPics } from '../constants/Pics'
+import { userDB, userLists } from '../constants/Databases'
 import LikeDislikeButton from '../components/LikeDislikeButton'
 import { BottomTabBar } from 'react-navigation';
 import MyListScreen from './MyListScreen';
@@ -11,30 +11,38 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import {Icon} from '@expo/vector-icons';
 
+const user = 0;
 class HomeScreen extends React.Component {
 
   constructor (props) {
     super(props)
     this.state = {
-      cards: HomeScreenPics,
+      cards: userDB,
       swipedAllCards: false,
       swipeDirection: '',
       cardIndex: 0,
       MyListScreen: [],
-      infinite: true,
       verticalSwipe: false,
-      cardIndex: 0
+      cardIndex: 0,
+      userUID: -1,
     }
   }
   emSwipeLeft() {
-    this.swiper.swipeLeft()
+    if (!this.state.swipedAllCards) {
+      this.swiper.swipeLeft();
+    }
   };
   emSwipeRight() {
-    this.swiper.swipeRight()
+    if (!this.state.swipedAllCards) {
+      this.swiper.swipeRight();
+    }
   };
   addToListScreen(number){
-  var to_add = HomeScreenPics[number]
-  MyListScreenPics.push(to_add)
+    let ID = userDB[number].UID;
+   if (userLists[user].listCandidates.indexOf(ID) < 0) {
+      userLists[user].listCandidates.push(ID);
+      console.log(userLists[user])
+   }
   }
   render() {
     return (
@@ -42,8 +50,7 @@ class HomeScreen extends React.Component {
         <Swiper 
           ref={(swiper) => this.swiper = swiper}
           onSwipedRight={(cardIndex) => this.addToListScreen(cardIndex)}
-          onSwiped={(cardIndex) => {console.log(cardIndex)}}
-          // onTapCard = {() => {setID()}} // this isnt working yets
+          onTapCard = {(cardIndex) => {console.log()}} // this isnt working yets
           cards={this.state.cards}
           cardIndex={this.state.cardIndex}
           renderCard={Card}
