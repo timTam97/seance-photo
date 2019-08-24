@@ -3,19 +3,19 @@ import firebase from 'firebase'
 class Fire {
     constructor() {
         this.init();
-        // this.observeAuth();
+        this.observeAuth();
     }
 
     init = () => {
-        // firebase.initializeApp({
-        //     apiKey: "AIzaSyDxiq9cR4Zja4uqm45ooN87yJnYhwOGG4o",
-        //     authDomain: "hireme-chatscreen.firebaseapp.com",
-        //     databaseURL: "https://hireme-chatscreen.firebaseio.com",
-        //     projectId: "hireme-chatscreen",
-        //     storageBucket: "",
-        //     messagingSenderId: "941657484500",
-        //     appId: "1:941657484500:web:074cce4b0c5cc66d"
-        // });
+        firebase.initializeApp({
+            apiKey: "AIzaSyDxiq9cR4Zja4uqm45ooN87yJnYhwOGG4o",
+            authDomain: "hireme-chatscreen.firebaseapp.com",
+            databaseURL: "https://hireme-chatscreen.firebaseio.com",
+            projectId: "hireme-chatscreen",
+            storageBucket: "",
+            messagingSenderId: "941657484500",
+            appId: "1:941657484500:web:074cce4b0c5cc66d"
+        });
     };
     
     observeAuth = () =>
