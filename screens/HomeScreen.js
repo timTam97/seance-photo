@@ -37,9 +37,6 @@ class HomeScreen extends React.Component {
   MyListScreenPics.push(to_add)
   }
   render() {
-      const yesbuttontext = 'Accept';
-      
-      const nobuttontext = 'Reject';
     return (
       <SafeAreaView style={styles.container}>
         <Swiper 
@@ -56,10 +53,15 @@ class HomeScreen extends React.Component {
           verticalSwipe={false}
           // onTapCard = {() => this.props.navigation.navigate('Portfolio')}
         />
-        <View style={styles.portfolio}>
-          <Button onPress={() => this.props.navigation.navigate('Portfolio')} title='See profile'></Button>
-        </View>
+        
         <View style={styles.buttons}>
+          <View>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Portfolio')} style={styles.portfolio} activeOpacity = { .5 }>
+              <Text style={styles.TextStyle}>
+                See profile
+              </Text>
+            </TouchableOpacity>
+          </View>
           <View>
             <TouchableOpacity onPress={() => this.emSwipeLeft()} style={styles.redButtonStyle} activeOpacity = { .5 }>
               <Text style={styles.TextStyle}> 
@@ -103,8 +105,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 40,
     position: 'absolute',
-    bottom: 120,
-    left: 150
+    bottom: 650,
+    left: 80
   },
   greenButtonStyle: {
     paddingTop: 12,
