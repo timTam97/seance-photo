@@ -2,17 +2,19 @@ import React from 'react'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 import Swiper from 'react-native-deck-swiper'
 import { Card } from '../components/Card'
-<<<<<<< Updated upstream
 import { HomeScreenPics, MyListScreenPics } from '../constants/Pics'
-=======
-import { HomeScreenPics } from '../constants/Pics'
 import LikeDislikeButton from '../components/LikeDislikeButton'
 import { BottomTabBar } from 'react-navigation';
->>>>>>> Stashed changes
 
 class HomeScreen extends React.Component {
+
   render() {
+      const yesbuttontext = 'Yes';
+      const nobuttontext = 'No';
+      
     return (
+      
+
       <SafeAreaView style={styles.container}>
         <Swiper 
           onSwipedRight={addToListScreen()}
@@ -27,10 +29,10 @@ class HomeScreen extends React.Component {
         />
         <View style={styles.buttons}>
           <View>
-            <LikeDislikeButton></LikeDislikeButton>
+            <LikeDislikeButton ButtonText={nobuttontext}></LikeDislikeButton>
           </View>
           <View>
-            <LikeDislikeButton></LikeDislikeButton>
+            <LikeDislikeButton ButtonText={yesbuttontext}></LikeDislikeButton>
           </View>
         </View>
       </SafeAreaView>
