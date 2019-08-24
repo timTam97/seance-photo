@@ -86,23 +86,9 @@ ProfileStack.navigationOptions = {
   ),
 }
 
-// const ChatStack = createStackNavigator(
-//   {
-//     Chat: ChatScreen,
-//   },
-//   {
-//     headerMode: 'none',
-//   },
-// )
-
-// ChatStack.navigationOptions = {
-  
-// }
-
 export default createBottomTabNavigator({
   HomeStack,
   MyListStack,
   MessagesStack,
   ProfileStack,
-  // ChatStack
 })
