@@ -28,20 +28,15 @@ class HomeScreen extends React.Component {
     }
   }
   emSwipeLeft() {
-    if (!this.state.swipedAllCards) {
-      this.swiper.swipeLeft();
-    }
+    this.swiper.swipeLeft();
   };
   emSwipeRight() {
-    if (!this.state.swipedAllCards) {
-      this.swiper.swipeRight();
-    }
+    this.swiper.swipeRight();
   };
   addToListScreen(number){
     let ID = userDB[number].UID;
    if (userLists[user].listCandidates.indexOf(ID) < 0) {
       userLists[user].listCandidates.push(ID);
-      console.log(userLists[user])
    }
   }
   render() {
