@@ -1,15 +1,13 @@
 import React from 'react'
-import { FlatList, ScrollView, StyleSheet, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import { Text, Tile } from 'react-native-elements'
-import { SafeAreaView, withNavigationFocus } from 'react-navigation'
+import { SafeAreaView } from 'react-navigation'
 import { userDB, userLists } from '../constants/Databases'
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-// function componentDidUpdate(){
-//   component.forceUpdate()
-// }
+
 const user = 0;
 class MyListScreen extends React.Component {
   componentDidMount(){
@@ -23,7 +21,6 @@ class MyListScreen extends React.Component {
   state = { isShowingText: true };
   
   render() {
-    //componentDidUpdate()
     return (
       <SafeAreaView style={styles.padding}>
         <ScrollView>

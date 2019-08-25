@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 
 export default class LikeDislikeButton extends React.Component {

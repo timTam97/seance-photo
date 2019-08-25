@@ -23,11 +23,6 @@ const Messages = createStackNavigator({
   },
 });
 
-// const Portfolio = createStackNavigator({
-//   HomeScreen,
-  
-// });
-
 const MainStack = createBottomTabNavigator({
     Home: {
       screen: HomeScreen,

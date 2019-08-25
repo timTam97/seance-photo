@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     width: Layout.window.width - 30,
     height: Layout.window.height - BOTTOM_BAR_HEIGHT * 6,
     borderRadius: 20,
-    //overflow: 'hidden', // this does magic
   },
   title: {
     position: 'absolute',

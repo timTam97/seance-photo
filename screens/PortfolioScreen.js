@@ -74,19 +74,17 @@ class PortfolioScreen extends React.Component {
                         <Social name="linkedin" />
                     </View>
                     <Swiper 
-          ref={(swiper) => this.swiper = swiper}
-          cards={this.state.cards}
-          cardIndex={this.state.cardIndex}
-          renderCard={Card}
-          backgroundColor="transparent"
-          cardHorizontalMargin={0}
-          stackSize={2}
-          verticalSwipe={false}
-
-          // onTapCard = {() => this.props.navigation.navigate('Portfolio')}
-        />
-                </ScrollView>
-            </SafeAreaView>
+            ref={(swiper) => this.swiper = swiper}
+            cards={this.state.cards}
+            cardIndex={this.state.cardIndex}
+            renderCard={Card}
+            backgroundColor="transparent"
+            cardHorizontalMargin={0}
+            stackSize={2}
+            verticalSwipe={false}
+          />
+          </ScrollView>
+        </SafeAreaView>
             
 
         )

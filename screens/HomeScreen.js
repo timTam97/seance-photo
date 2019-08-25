@@ -1,15 +1,8 @@
 import React from 'react'
-import { Button, SafeAreaView, StyleSheet, View, TouchableOpacity, Text } from 'react-native'
+import { SafeAreaView, StyleSheet, View, TouchableOpacity, Text } from 'react-native'
 import Swiper from 'react-native-deck-swiper'
 import { Card } from '../components/Card'
 import { userDB, userLists } from '../constants/Databases'
-import LikeDislikeButton from '../components/LikeDislikeButton'
-import { BottomTabBar } from 'react-navigation';
-import MyListScreen from './MyListScreen';
-import { GiftedChat } from 'react-native-gifted-chat';
-import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import {Icon} from '@expo/vector-icons';
 
 const user = 0;
 class HomeScreen extends React.Component {
@@ -45,7 +38,7 @@ class HomeScreen extends React.Component {
         <Swiper 
           ref={(swiper) => this.swiper = swiper}
           onSwipedRight={(cardIndex) => this.addToListScreen(cardIndex)}
-          onTapCard = {(cardIndex) => {console.log()}} // this isnt working yets
+          onTapCard = {(cardIndex) => {console.log()}} 
           cards={this.state.cards}
           cardIndex={this.state.cardIndex}
           renderCard={Card}
@@ -53,7 +46,6 @@ class HomeScreen extends React.Component {
           cardHorizontalMargin={0}
           stackSize={2}
           verticalSwipe={false}
-          // onTapCard = {() => this.props.navigation.navigate('Portfolio')}
         />
         
         <View style={styles.buttons}>
