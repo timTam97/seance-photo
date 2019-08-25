@@ -4,7 +4,10 @@ import { Divider, Icon, Text } from 'react-native-elements'
 import Layout from '../constants/Layout'
 import { StaticScreenPics } from '../constants/Pics'
 import { MyListScreenPics } from '../constants/Pics'
+import { jaydenPhotos } from '../constants/Users'
 import { randomNo } from '../utils/randomNo'
+import Swiper from 'react-native-deck-swiper'
+import { Card } from '../components/CardJayden'
  
 const Social = ({ name }) => (
     <Icon
@@ -18,11 +21,25 @@ const Social = ({ name }) => (
 
 let id = 1
 class PortfolioScreen extends React.Component {
-
+  constructor (props) {
+    super(props)
+    this.state = {
+      cards: jaydenPhotos,
+      swipedAllCards: false,
+      swipeDirection: '',
+      cardIndex: 0,
+      MyListScreen: [],
+      verticalSwipe: false,
+      cardIndex: 0,
+      userUID: -1,
+    }
+  }
     render() {
         return(
             <SafeAreaView style={styles.container}>
+            
                 <ScrollView>
+
                 {/* profile pic */}
                     <View style={styles.imageContainer}>
                         <Image source={StaticScreenPics[id].pic} style={styles.image} />
@@ -56,8 +73,22 @@ class PortfolioScreen extends React.Component {
                         <Social name="instagram"/>
                         <Social name="linkedin" />
                     </View>
+                    <Swiper 
+          ref={(swiper) => this.swiper = swiper}
+          cards={this.state.cards}
+          cardIndex={this.state.cardIndex}
+          renderCard={Card}
+          backgroundColor="transparent"
+          cardHorizontalMargin={0}
+          stackSize={2}
+          verticalSwipe={false}
+
+          // onTapCard = {() => this.props.navigation.navigate('Portfolio')}
+        />
                 </ScrollView>
             </SafeAreaView>
+            
+
         )
     }
 }
