@@ -42,6 +42,7 @@ class MyListScreen extends React.Component {
                 titleStyle={styles.title}
                 featured
                 key={userDB[id].title}
+                onPress={() => this.props.navigation.navigate("Portfolio")}
               />
             ))}
           </View>
