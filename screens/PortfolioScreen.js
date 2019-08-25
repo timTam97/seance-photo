@@ -1,9 +1,24 @@
 import React from 'react'
 import { Image, SafeAreaView, StyleSheet, View, ScrollView } from 'react-native'
+import { Divider, Icon, Text } from 'react-native-elements'
 import Layout from '../constants/Layout'
+import { StaticScreenPics } from '../constants/Pics'
+import { MyListScreenPics } from '../constants/Pics'
+import { randomNo } from '../utils/randomNo'
  
+const Social = ({ name }) => (
+    <Icon
+      name={name}
+      type="font-awesome"
+      containerStyle={styles.iconContainer}
+      onPress= {() => socialClick(name)}
+      size={32}
+    />
+  ) 
 
+let id = 1
 class PortfolioScreen extends React.Component {
+
     render() {
         return(
             <SafeAreaView style={styles.container}>

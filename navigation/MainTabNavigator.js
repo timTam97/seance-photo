@@ -18,14 +18,15 @@ const Messages = createStackNavigator({
   Chat: {
     screen: ChatScreen,
   },
-});
-
-const Portfolio = createStackNavigator({
-  HomeScreen,
   Portfolio: {
     screen: PortfolioScreen,
   },
 });
+
+// const Portfolio = createStackNavigator({
+//   HomeScreen,
+  
+// });
 
 const MainStack = createBottomTabNavigator({
     Home: {

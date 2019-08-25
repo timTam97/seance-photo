@@ -6,7 +6,6 @@ import { Messages } from '../constants/Messages'
 class MessagesScreen extends React.Component {
   onPress = (name) => {
     this.props.navigation.navigate('Chat', {title: name});
-    // console.log(name)
   }
   
   render() {
