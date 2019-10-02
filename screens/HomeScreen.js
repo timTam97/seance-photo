@@ -47,6 +47,7 @@ class HomeScreen extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <Swiper 
+
           ref={(swiper) => this.swiper = swiper}
           onSwipedRight={(cardIndex) => this.addToListScreen(cardIndex)}
           onTapCard = {(cardIndex) => {console.log()}} // this isnt working yets
@@ -57,6 +58,8 @@ class HomeScreen extends React.Component {
           cardHorizontalMargin={0}
           stackSize={2}
           verticalSwipe={false}
+          onSwipedRight={addToListScreen}
+          onSwipedLeft={increment}
         />
         <View style={styles.buttons}>
           <View>
@@ -71,6 +74,19 @@ class HomeScreen extends React.Component {
   }
 }
 var i = 0
+
+function increment(){
+  i = i + 1
+}
+
+function addToListScreen() {
+ // var to_add = HomeScreenPics.splice(i, 1)
+ var hello = {
+  pic: require('../assets/images/women/women5.jpg'),
+  title: 'Lucy, 27',
+ }
+MyListScreenPics.push(hello)
+}
 
 const styles = StyleSheet.create({
   container: {
