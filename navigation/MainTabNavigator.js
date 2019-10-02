@@ -1,14 +1,16 @@
 import { Icon } from 'expo'
-import React from 'react'
+import React, {Component} from 'react'
 import {
   createBottomTabNavigator,
   createStackNavigator,
+  withNavigationFocus
 } from 'react-navigation'
 import TabBarIcon from '../components/TabBarIcon'
 import HomeScreen from '../screens/HomeScreen'
 import MessagesScreen from '../screens/MessagesScreen'
 import ProfileScreen from '../screens/ProfileScreen'
 import MyListScreen from '../screens/MyListScreen'
+import ChatScreen from '../screens/ChatScreen'
 
 const HomeStack = createStackNavigator(
   {
@@ -20,14 +22,18 @@ const HomeStack = createStackNavigator(
 )
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Freelancers',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       Icon={Icon.MaterialCommunityIcons}
       focused={focused}
-      name="fire"
+      name="account-search"
     />
   ),
+  header: props => <CustomHeader {...props}/>,
+  headerStyle: {
+    backgroundColor: "transparent"
+  }
 }
 
 const MyListStack = createStackNavigator(
@@ -39,6 +45,7 @@ const MyListStack = createStackNavigator(
   },
 )
 
+
 MyListStack.navigationOptions = {
   tabBarLabel: 'My List',
   tabBarIcon: ({ focused }) => (
@@ -49,6 +56,7 @@ MyListStack.navigationOptions = {
 const MessagesStack = createStackNavigator(
   {
     Messages: MessagesScreen,
+    Chat: ChatScreen,
   },
   {
     headerMode: 'none',
@@ -72,9 +80,9 @@ const ProfileStack = createStackNavigator(
 )
 
 ProfileStack.navigationOptions = {
-  tabBarLabel: 'Profile',
+  tabBarLabel: 'My Company',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon Icon={Icon.Feather} focused={focused} name="user" />
+    <TabBarIcon Icon={Icon.Feather} focused={focused} name="home" />
   ),
 }
 

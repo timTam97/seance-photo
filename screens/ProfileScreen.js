@@ -1,44 +1,65 @@
 import React from 'react'
-import { Image, SafeAreaView, StyleSheet, View } from 'react-native'
+import { Image, SafeAreaView, StyleSheet, View, ScrollView } from 'react-native'
 import { Divider, Icon, Text } from 'react-native-elements'
 import Layout from '../constants/Layout'
-import { HomeScreenPics } from '../constants/Pics'
+import { StaticScreenPics } from '../constants/Pics'
+import { MyListScreenPics } from '../constants/Pics'
 import { randomNo } from '../utils/randomNo'
 
-const { pic, title } = HomeScreenPics[randomNo(1, HomeScreenPics.length)]
 
 const Social = ({ name }) => (
   <Icon
     name={name}
     type="font-awesome"
     containerStyle={styles.iconContainer}
+    onPress= {() => socialClick(name)}
     size={32}
   />
-)
+) 
+
+//  range here is [0,5]
+
+var id = 3 // TRY SETTING THIS FROM HOMESCREEN
 
 class ProfileScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <ScrollView>
+        {/* profile pic */}
         <View style={styles.imageContainer}>
-          <Image source={pic} style={styles.image} />
+          <Image source={StaticScreenPics[id].pic} style={styles.image} />
         </View>
+
+        {/* Name */}
+          
         <Text h4 style={styles.name}>
-          {title}
+        {StaticScreenPics[id].title}
         </Text>
-        <Text style={styles.desc}>Fashion Designer at Amelia & Co.</Text>
+
         <Divider style={styles.divider} />
+
+        {/* <Social name="globe" /> */}
+        
+        {/* Location */}
         <Text style={styles.desc}>
-          I love to travel. I have a cat named pickles, if he likes you, I
-          probably will too.
+          Based in {""}
+          <Text style={{fontWeight: "bold"}}>{StaticScreenPics[id].location}</Text>
+          
         </Text>
+
+        {/* long-ass spiel */}
+        <Text style={styles.desc}>
+          {StaticScreenPics[id].aboutExt}
+        </Text>
+        
         <Divider style={styles.divider} />
-        <Text style={styles.desc}>Find me on Social here</Text>
+        <Text style={styles.desc}>Find me on Socials here</Text>
         <View style={styles.socialLinks}>
-          <Social name="snapchat" />
-          <Social name="instagram" />
-          <Social name="facebook-square" />
-        </View>
+          <Social name="instagram"/>
+          <Social name="linkedin" />
+          </View>
+        </ScrollView>
       </SafeAreaView>
     )
   }
@@ -48,6 +69,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    paddingTop: 50,
   },
   imageContainer: {
     margin: 20,
