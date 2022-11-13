@@ -27,7 +27,7 @@
     "react-native-gifted-chat": "^0.9.11",
     "react-native-keyboard-spacer": "^0.4.1",
     "react-native-keyboard-spacer-view": "0.0.3",
-    "react-native-reanimated": "~1.1.0",
+    "react-native-reanimated": "~2.10.0",
     "react-native-spacer": "^1.5.0",
     "react-navigation": "^3.11.1"
   },
