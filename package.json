@@ -29,7 +29,7 @@
     "react-native-keyboard-spacer-view": "0.0.3",
     "react-native-reanimated": "~2.10.0",
     "react-native-spacer": "^1.5.0",
-    "react-navigation": "^3.11.1"
+    "react-navigation": "^5.0.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
