@@ -18,7 +18,7 @@
     "expo": "^34.0.3",
     "expo-asset": "~6.0.0",
     "expo-font": "~6.0.1",
-    "firebase": "^6.4.2",
+    "firebase": "^10.9.0",
     "react": "16.8.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
     "react-native-deck-swiper": "1.5.25",
