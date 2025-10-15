@@ -15,7 +15,7 @@
     "@expo/vector-icons": "^10.0.0",
     "@mdi/js": "^4.1.95",
     "@mdi/react": "^1.2.1",
-    "expo": "^34.0.3",
+    "expo": "^48.0.0",
     "expo-asset": "~6.0.0",
     "expo-font": "~6.0.1",
     "firebase": "^11.7.3",
